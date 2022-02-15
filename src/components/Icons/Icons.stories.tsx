@@ -16,3 +16,10 @@ Default.args = {
   color: "blue",
   circleRadius: false,
 };
+
+export const CircleOutline = Template.bind({});
+CircleOutline.args = {
+  name: "close",
+  color: "red",
+  circleRadius: true,
+};

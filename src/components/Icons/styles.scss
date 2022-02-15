@@ -1,0 +1,13 @@
+.icon {
+  cursor: pointer;
+
+  &.circle-radius {
+    border-radius: 50%;
+    border: 2px solid #000;
+    padding: 3px;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}

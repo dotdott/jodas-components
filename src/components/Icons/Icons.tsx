@@ -8,6 +8,7 @@ export interface IIConsProps {
   handleClick?: () => void;
   circleRadius?: boolean;
   color?: string;
+  disabled?: boolean;
 }
 
 const Icons = ({
@@ -17,11 +18,20 @@ const Icons = ({
   handleClick,
   circleRadius = false,
   color = "#000",
+  disabled = false,
 }: IIConsProps) => {
+  const disabledColor = disabled ? "#b4b4b4" : color;
+
   return (
     <Icon
       className={`icon ${circleRadius && "circle-radius"} ${ClassName}`}
-      style={{ ...Styles, color: color, borderColor: color }}
+      style={{
+        ...Styles,
+        color: disabledColor,
+        borderColor: disabledColor,
+        opacity: disabled ? ".6" : "1",
+        cursor: disabled ? "default" : "pointer",
+      }}
       onClick={handleClick}
       data-testid="icon-test-id"
     >

@@ -9,6 +9,7 @@ export interface IIConsProps {
   circleRadius?: boolean;
   color?: string;
   disabled?: boolean;
+  size?: string;
 }
 
 const Icons = ({
@@ -19,6 +20,7 @@ const Icons = ({
   circleRadius = false,
   color = "#000",
   disabled = false,
+  size = "24px",
 }: IIConsProps) => {
   const disabledColor = disabled ? "#b4b4b4" : color;
 
@@ -31,6 +33,7 @@ const Icons = ({
         borderColor: disabledColor,
         opacity: disabled ? ".6" : "1",
         cursor: disabled ? "default" : "pointer",
+        fontSize: size,
       }}
       onClick={handleClick}
       data-testid="icon-test-id"

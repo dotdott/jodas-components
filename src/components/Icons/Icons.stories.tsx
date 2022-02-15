@@ -29,6 +29,7 @@ Default.args = {
   color: "blue",
   circleRadius: false,
   disabled: false,
+  size: "24px",
 };
 
 export const CircleOutline = Template.bind({});
@@ -37,6 +38,7 @@ CircleOutline.args = {
   color: "red",
   circleRadius: true,
   disabled: false,
+  size: "24px",
 };
 
 export const DisabledButton = Template.bind({});
@@ -45,4 +47,5 @@ DisabledButton.args = {
   color: "red",
   circleRadius: true,
   disabled: true,
+  size: "24px",
 };

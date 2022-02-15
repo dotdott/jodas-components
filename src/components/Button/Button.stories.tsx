@@ -27,3 +27,8 @@ CustomButton.args = {
     borderRadius: "16px",
   },
 };
+
+export const DisabledButton = Template.bind({});
+DisabledButton.args = {
+  disabled: true,
+};

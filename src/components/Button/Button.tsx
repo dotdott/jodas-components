@@ -8,6 +8,8 @@ export interface IButtonProps {
   btnExtraStyles?: {};
   children?: React.ReactNode;
   noUppercase?: boolean;
+  type?: "button" | "submit";
+  disabled?: boolean;
 }
 
 const Button = ({
@@ -16,12 +18,16 @@ const Button = ({
   btnExtraStyles,
   children,
   noUppercase = false,
+  type = "button",
+  disabled,
 }: IButtonProps) => {
   return (
     <MU.Button
       style={btnExtraStyles}
       className={`button ${btnClasses} ${noUppercase ? "noUppercase" : ""}`}
       onClick={btnFunction}
+      type={type}
+      disabled={disabled}
       data-testid="button-test-id"
     >
       {children}

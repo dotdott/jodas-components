@@ -22,3 +22,11 @@ Default.args = {
     btnRight: "CONFIRM",
   },
 };
+
+export const LargeModalOneButton = Template.bind({});
+LargeModalOneButton.args = {
+  ...Default.args,
+  hideLeftBtn: true,
+  modalMessage: "This is an Large modal with only one button 😁",
+  size: "large",
+};

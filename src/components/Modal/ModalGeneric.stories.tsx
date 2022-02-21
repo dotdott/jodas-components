@@ -9,11 +9,12 @@ export default {
 const Template: ComponentStory<typeof ModalGeneric> = (args: IModalGeneric) => (
   <ModalGeneric {...args} />
 );
+let show = true;
 
 export const Default = Template.bind({});
 Default.args = {
-  show: true,
-  handleClose: () => {},
+  show: show,
+  handleClose: () => (show = false),
   modalMessage: "Generic modal Message",
   texts: {
     title: "Hello there!!!",

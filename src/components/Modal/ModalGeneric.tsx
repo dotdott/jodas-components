@@ -17,6 +17,7 @@ export interface IModalGeneric {
   hideLeftBtn?: boolean;
   hideRightBtn?: boolean;
   leftBtnFun?: () => void;
+  size?: "large" | "medium" | "small";
 }
 
 const ModalGeneric = ({
@@ -33,11 +34,12 @@ const ModalGeneric = ({
   hideLeftBtn = false,
   hideRightBtn = false,
   leftBtnFun,
+  size = "small",
 }: IModalGeneric) => {
   return (
-    <Modal open={show} onClose={handleClose}>
+    <Modal open={show} onClose={handleClose} onBackdropClick={handleClose}>
       <div className="modal__wrapper" ref={modalRef}>
-        <div className="modal__wrapper__background">
+        <div className={`modal__wrapper__background ${size}`}>
           <div className="modal__wrapper__header">
             <div className="modal__wrapper__header__message">
               <span>{texts.title}</span>

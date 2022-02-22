@@ -3,7 +3,7 @@ import Button from "../Button";
 import Icons from "../Icons";
 import "./styles.scss";
 
-export interface IModalGeneric {
+export type IModalGeneric = {
   show: boolean;
   handleClose: () => void;
   handleConfirm?: () => void;
@@ -18,7 +18,7 @@ export interface IModalGeneric {
   hideRightBtn?: boolean;
   leftBtnFun?: () => void;
   size?: "large" | "medium" | "small";
-}
+} & Omit<React.ComponentPropsWithRef<typeof Modal>, "open">;
 
 const ModalGeneric = ({
   show,
@@ -35,9 +35,15 @@ const ModalGeneric = ({
   hideRightBtn = false,
   leftBtnFun,
   size = "small",
+  ...props
 }: IModalGeneric) => {
   return (
-    <Modal open={show} onClose={handleClose} onBackdropClick={handleClose}>
+    <Modal
+      open={show}
+      onClose={handleClose}
+      onBackdropClick={handleClose}
+      {...props}
+    >
       <div className="modal__wrapper" ref={modalRef}>
         <div className={`modal__wrapper__background ${size}`}>
           <div className="modal__wrapper__header">

@@ -1,7 +1,8 @@
 import { Icon } from "@material-ui/core";
 import "./styles.scss";
 
-export interface IIConsProps {
+export interface IIConsProps
+  extends Omit<React.ComponentProps<typeof Icon>, "color"> {
   name: string;
   Styles?: {};
   ClassName?: string;
@@ -21,9 +22,9 @@ const Icons = ({
   color = "#000",
   disabled = false,
   size = "24px",
+  ...props
 }: IIConsProps) => {
   const disabledColor = disabled ? "#b4b4b4" : color;
-
   return (
     <Icon
       className={`icon ${circleRadius && "circle-radius"} ${ClassName}`}
@@ -37,6 +38,7 @@ const Icons = ({
       }}
       onClick={handleClick}
       data-testid="icon-test-id"
+      {...props}
     >
       {name}
     </Icon>

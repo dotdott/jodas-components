@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.scss";
 import * as MU from "@material-ui/core";
 
-export interface IButtonProps {
+export interface IButtonProps extends React.ComponentProps<typeof MU.Button> {
   btnFunction?: () => void;
   btnClasses?: "_red" | "_blue";
   btnExtraStyles?: {};
@@ -20,6 +20,7 @@ const Button = ({
   noUppercase = false,
   type = "button",
   disabled,
+  ...props
 }: IButtonProps) => {
   return (
     <MU.Button
@@ -29,6 +30,7 @@ const Button = ({
       type={type}
       disabled={disabled}
       data-testid="button-test-id"
+      {...props}
     >
       {children}
     </MU.Button>
